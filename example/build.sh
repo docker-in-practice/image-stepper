@@ -1,1 +1,1 @@
-docker build -t myimage .
+docker build -t myimage -q .
