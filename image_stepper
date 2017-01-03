@@ -11,7 +11,7 @@ then
 	IMAGE_TAG=latest
 fi
 x=1
-for id in $(docker history -q "${IMAGE_NAME}:${IMAGE_TAG}" | tac)
+for id in $(docker history -q "${IMAGE_NAME}:${IMAGE_TAG}" | grep -vw missing | tac)
 do
     docker tag "${id}" "${IMAGE_NAME}:${IMAGE_TAG}_step_$x"
     ((x++))
